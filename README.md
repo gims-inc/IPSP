@@ -11,4 +11,5 @@ A project to enable automation and fast access to in-person service providers at
 - Troubleshooting
 - FAQ
 - Maintainers
+    [Gabriel Musanga](https://github.com/gims-inc)
 
