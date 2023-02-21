@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+        <link rel="stylesheet" href="../static/styles/bootstrap-5.0.2-dist/css/bootstrap.css?{{ cache_id }}">
+        <link rel="stylesheet" href="../static/styles/base.css?{{ cache_id }}">
+        <link rel="stylesheet" href="../static/styles/content.css cache_id }}">
+        <Link rel="stylesheet" href="../static/styles/fontawesome-free-6.3.0-web/css/all.css?{{ cache_id }}">
+
+        <script src="../static/styles/bootstrap-5.0.2-dist/js/bootstrap.js?{{ cache_id }}"></script>
+        <script src="../static/scripts/jquery-3.6.0.min.js?{{ cache_id }}"></script>
+        
+        <title>{% block title %}IPSP{% endblock %}</title>
+    </head>
+    <body>
+        
+        {% include "header.html" %}
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>    
+        {% include "footer.html" %}
+        
+    </body>
+</html>
