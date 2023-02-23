@@ -83,6 +83,26 @@
   background: red;
   color: white;
 }
+
+/*====================image+++++*/
+
+#text-image{
+padding-bottom: 5%;
+}
+
+#image-container{
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  
+}
+
+#image1{
+  border-radius: 50%;
+}
+
 /*==============================*/
 .InPerson{
   font-weight: bolder;
@@ -96,8 +116,9 @@
 
 /*===================================*/
 #cards{
-  display: inline-flex;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+
   padding-top: 50px;
   
 }
@@ -109,21 +130,25 @@
 }
 
 
+#cards-container{
+  padding-bottom: 50px;
+}
+
 /*===============filter========*/
 #filtersz{
-  padding-top: 30px;
+  padding-top: 80px;
   padding-left: 40px;
 
 }
 
 .filters{
   height: 70px;
-    border: 1px solid #8e8d8d;
-    border-radius: 25px;
+    border: 1px solid #cfcbcb;
+    border-radius: 5px;
     display: flex;  
     align-items: center;
     position: relative;
-    
+    z-index: 2;
 }
 
 .filters button {
@@ -156,10 +181,10 @@
 }
 
 .locations {
-  border-right: 1px solid  #575757 ;
+  border-right: 1px solid  #b3b3b3 ;
 }
 
-.filters .locations h3,  .filters .types h3{
+.filters .locations h3, .filters .types h3{
   font-size: medium;
   margin: 2px 20px;
 }
@@ -173,7 +198,7 @@
 #popover {
   display: none;
   background-color: #FAFAFA;
-  border: 1px solid #9f9f9f;
+  border: 1px solid #bdbcbc;
   border-radius: 4px;
   position: absolute;
   box-sizing: border-box;
