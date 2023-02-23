@@ -381,3 +381,39 @@ https://mdbootstrap.com/docs/standard/
 ====
 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
 ===========
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6" style="border:1px solid #ddd">
+      <img src="./assets/bootstrap/responsive-website-with-bootstrap.png" alt="responsive webite" class="img-fluid">
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6" style="border:1px solid #ddd">
+      <h2>Bootstrap Responsive Website</h2>
+      <p>Bootstrap is a famous front-end framework used to create mobile-first responsive websites. The latest release
+        version of bootstrap has removed JQuery dependency not fully work on vanilla javascript.</p>
+      <p>Using bootstrap it becomes very easy to build a responsive website.</p>
+    </div>
+  </div>
+</div>
+==============================================================================
+<div class="row" id="description">
+            <div style="width: 100%">
+                <span id="content-image"><img class="img-fluid" src="../static/images/on_phone2.jpeg" alt=""></span>
+            </div>
+            <span class="content-text">
+                <h1>
+                    Lets get you connected to an in-person service provider at the comfort of your choice!  
+                </h1>
+                <h2>
+                    Would you like to provide a service instead <a href="">Sign up here!</a>
+                </h2>
+            </span>
+            
+        </div>
+===========================================================================
+style="width: 14rem;"
+========================================
+https://www.bootdey.com/snippets/view/profile-edit-data-and-skills
+
+https://bootdey.com/bootstrap-themes
+
+=================================================
