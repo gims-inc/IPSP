@@ -416,4 +416,7 @@ https://www.bootdey.com/snippets/view/profile-edit-data-and-skills
 
 https://bootdey.com/bootstrap-themes
 
+https://randomuser.me/documentation#format
+
+ttps://randomuser.me/api/?results=50&format=csv
 =================================================

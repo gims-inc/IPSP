@@ -6,7 +6,7 @@ from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
 
-class ProviderServices(BaseModel,Base):
+class ProviderService(BaseModel,Base):
     __tablename__ = "provider_services"
     service_name = Column(String(128), nullable=False)
     category_id= Column(String(128), ForeignKey('service_categories.id'), nullable=False)

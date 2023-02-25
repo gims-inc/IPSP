@@ -1,13 +1,23 @@
-import sqlalchemy
 import models
+from models.notification import Notification
+from models.provider_service import ProviderService
+from models.region import Region
+from models.review import Review
+from models.service_request import   ServiceRequest
+from models .service_category import ServiceCategory
+from models.town import Town
+from models.user import User
+
+import sqlalchemy
 from models.base_model import BaseModel, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {}
+#classes = {}
 
-# classes = {"Service_request": Service_Request, "City": City,"Region": Region,
-#            "Review": Review, "User": User,"Notificatio":Notification}
+classes = {"ServiceRequest": ServiceRequest, "Town": Town,"Region": Region,
+           "Review": Review, "User": User,"Notification":Notification,"ProviderService":ProviderService,
+           "ServiceCategory":ServiceCategory}
 
 
 class DBStorage:
@@ -17,10 +27,10 @@ class DBStorage:
 
     def __init__(self):
         """Instantiate a DBStorage object"""
-        MYSQL_USER = 'root'
-        MYSQL_PWD = 'development'
+        MYSQL_USER = 'inperson'
+        MYSQL_PWD = 'Development_200'
         MYSQL_HOST = 'localhost'
-        MYSQL_DB = 'in_person'
+        MYSQL_DB = 'in_person_db'
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(MYSQL_USER,
                                              MYSQL_PWD,

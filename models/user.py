@@ -17,8 +17,10 @@ class User(BaseModel, Base):
     user_name = Column(String(128), nullable=True)
     phone = Column(String(128), nullable=True)
     adress = Column(String(128), nullable=True)
-    kill = Column(String(128), nullable=True)
-    about = Column(String(1024, nullable=True))
+    gender = Column(String(10),nullable=True)
+    dp = Column(String(128),nullable=True)
+    skill = Column(String(128), nullable=True)
+    about = Column(String(1024), nullable=True)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     availability = Column(String(128), nullable=True)
@@ -27,8 +29,10 @@ class User(BaseModel, Base):
     town = Column(String(128), nullable=True)
     country = Column(String(128), nullable=True)
 
-    service_request = relationship("ServiceRequest", backref="user")
-    reviews = relationship("Review", backref="user")
+    # service_request = relationship("ServiceRequest", backref="user")
+    # service_request2 = relationship("ServiceRequest", backref="user")
+
+    #reviews = relationship("Review", backref="user")
     notifications = relationship("Notification",backref="user")
 
     
