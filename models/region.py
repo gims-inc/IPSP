@@ -28,6 +28,6 @@ class Region(BaseModel, Base):
         town_list = []
         all_towns = models.storage.all(Town)
         for town in all_towns.values():
-            if town.state_id == self.id:
+            if town.region_id == self.id:
                 town_list.append(town)
         return town_list

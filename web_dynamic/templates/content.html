@@ -37,24 +37,16 @@
                         Western, Eastern...
                     </h4>
                     <ul id="popover">
-                        <li>
-                            <h2>Central:</h2>
+                      {% for region in regions %}
+                      <li>
+                        <h2>{{ region[0].name }}:</h2>
+                        <ul>
+                          {% for town in region[1] %}
+                          <li>{{ town.name }}</li>
+                          {% endfor %}
+                        </ul>
                         </li>
-                        <li>
-                            <ul>
-                                <li>Nairobi</li>
-                                <li>Kiambu</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h2>Western:</h2>
-                        </li>
-                        <li>
-                            <ul>
-                                <li>Kisumu</li>
-                                <li>Eldoret</li>
-                            </ul>
-                        </li>
+                      {% endfor %} 
                     </ul>
     
                 </div>
@@ -66,9 +58,9 @@
                         Proffessional, ...
                     </h4>
                     <ul id="popover">
-                        <li>Professional</li>
-                        <li>Artisan</li>
-                        <li>Others</li>
+                      {% for category in categories %}
+                      <li>{{ category.category_name }}</li>
+                      {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -79,22 +71,24 @@
 
         <div class="row" id="cards">
 
-            <div class="card"  style="width: 18rem;">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+            {% for user in users %}
+            <div class="card"  style="width: 18rem;padding: 2%;">
+                <img src="{{ user.dp }}" class="card-img-top" id="dp" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Card one</h5>
+                  <h5 class="card-title">{{ user.full_name}}</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Cras justo odio</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
+                  <li class="list-group-item">{{ user.skill }}</li>
+                  <li class="list-group-item">{{ user.town }}</li>
+                  <li class="list-group-item">{{ user.phone }}</li>
                 </ul>
                 <div class="card-body">
-                  <a href="/profile_view" class="card-link">View</a>
+                  <a href="/profile_view/{{ user.id }}" class="card-link">View</a>
                   <a href="#" class="card-link">Request</a>
                 </div>
             </div>
+            {% endfor %}
             
               <div class="card" style="width: 18rem;">
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
