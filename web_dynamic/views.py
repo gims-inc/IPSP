@@ -1,4 +1,4 @@
-from flask import Blueprint,  render_template
+from flask import Blueprint, render_template, sessions, redirect,url_for
 import uuid
 from models import storage
 from models.user import User
@@ -11,7 +11,7 @@ views = Blueprint('views',__name__)
 
 @views.route('/home',strict_slashes=False)
 @views.route('/home/<string:id>',strict_slashes=False,methods=['GET','POST'])
-def home():
+def home(id=None):
 
     users = storage.all('User').values()
     #print(users)
@@ -27,6 +27,8 @@ def home():
     categories = sorted(categories, key=lambda k:k.category_name)
     #print(categories)
 
+    
+
 
     return render_template('home.html',cache_id=uuid.uuid4(),
                            users=users,
@@ -36,17 +38,30 @@ def home():
 
 @views.route('/profile_view/<string:id>',strict_slashes=False)
 def profile_view(id):
-    user = storage.get(User,id)
+    if not id:
+        return
+    else:
+        user = storage.get(User,id)
 
-    return render_template('view_profile.html',user=user,
+        return render_template('view_profile.html',user=user,
                            cache_id=uuid.uuid4())                                             
 
 
-@views.route('/profile_user',strict_slashes=False)
+#@views.route('/profile_user',strict_slashes=False)
 @views.route('/profile_user/<string:id>',strict_slashes=False)
-def profile_user(id):
-    user = storage.get(User,id)
+def profile_user(id=None):
+    if id == None:
+        redirect(url_for('/auth/login'),200)
+    else:
+        user = storage.get(User,id)
     
-    return render_template('user_profile.html',user=user,
+        return render_template('user_profile.html',user=user,
+                           cache_id=uuid.uuid4())
+    
+
+@views.route('/request_service/<string:id>',strict_slashes=False)
+def request_service(id):
+
+    return render_template('request.html',providerId=id,
                            cache_id=uuid.uuid4())
 

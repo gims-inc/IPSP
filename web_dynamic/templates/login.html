@@ -19,8 +19,11 @@
   
   <!-- Pills content -->
   <div class="tab-content">
+    
+
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-      <form>
+
+     
         <div class="text-center mb-3">
           <p>Sign in with:</p>
           <button type="button" class="btn btn-link btn-floating mx-1">
@@ -38,7 +41,7 @@
   
         <p class="text-center">or:</p>
 
-        <form method="POST">
+        <form id="login-form"  method="POST">
   
         <!-- Email input -->
         <div class="form-outline mb-4">
@@ -69,18 +72,19 @@
         </div>
   
         <!-- Submit button -->
-        <button type="submit" class="btn btn-secondary btn-block mb-4">Sign in</button>
+        <button type="submit" id="login" name="login" class="btn btn-secondary btn-block mb-4">Sign in</button>
   
         <!-- Register buttons 
         <div class="text-center">
           <p>Not a member? <a href="#!">Register</a></p>
         </div>-->
 
-      </form>
+        </form>
 
     </div>
+    
     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-      <form>
+      
         <div class="text-center mb-3">
           <p>Sign up with:</p>
           <button type="button" class="btn btn-link btn-floating mx-1">
@@ -97,7 +101,8 @@
         </div>
   
         <p class="text-center">or:</p>
-        <form method="POST">
+
+        <form id="register-form" method="POST">
   
         <!-- Name input -->
         <div class="form-outline mb-4">
@@ -139,15 +144,12 @@
         </div>-->
   
         <!-- Submit button -->
-        <button type="submit" class="btn btn-secondary btn-block mb-3">Sign Up</button>
+        <button type="submit" id="register" name="register" class="btn btn-secondary btn-block mb-3">Sign Up</button>
       </form>
       
     </div>
   </div>
   <!-- Pills content -->
 
-
-
-</form>
 </div>
 {% endblock %}

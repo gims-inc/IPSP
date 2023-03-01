@@ -87,6 +87,16 @@ class DBStorage:
                 return value
 
         return None
+    
+    def get_user(self, email):
+        """
+        Returns the object based on the class name and its email, or
+        None if not found
+        """
+        user_dict = models.storage.all(User)
+        for value in user_dict.values():
+            if (value.email == email):
+                return value
 
     def count(self, cls=None):
         """

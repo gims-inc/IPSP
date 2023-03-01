@@ -419,6 +419,10 @@ https://bootdey.com/bootstrap-themes
 https://randomuser.me/documentation#format
 
 ttps://randomuser.me/api/?results=50&format=csv
+
+https://www.quackit.com/html/codes/html_popup_window_code.cfm
+
+https://foolishdeveloper.com/simple-popup-form-using-html-css-and-javascript/
 =================================================
 <li>
                             <h2>Central:</h2>
@@ -624,5 +628,13 @@ ttps://randomuser.me/api/?results=50&format=csv
 
 </div>
 {% endblock %}
+<!--======================================================================-->
 
+service status<requested, accepted, declined>
+
+Notifications
+<service request from :user>
+<service request to: user declined>
+<service request to: user accepted>
+<Message from:user>
 

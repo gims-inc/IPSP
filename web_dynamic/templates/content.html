@@ -11,7 +11,7 @@
                 Lets get you connected to an in-person service provider at the comfort of your choice!  
             </h2>
             <h3 id="text2">
-                Would you like to provide a service instead <a href="/auth/login">Sign up here!</a>
+                Would you like to provide a service instead <a href="/auth/register">Sign up here!</a>
             </h3>
         </div>
         </div>
@@ -42,7 +42,9 @@
                         <h2>{{ region[0].name }}:</h2>
                         <ul>
                           {% for town in region[1] %}
-                          <li>{{ town.name }}</li>
+                          <!--<li>{{ town.name }}</li>-->
+	                        <li> <INPUT style="caret-color: blue;" type="checkbox" data-id="{{ town.id }}" data-name="{{ town.name}}">{{ town.name }}</li>
+
                           {% endfor %}
                         </ul>
                         </li>
@@ -59,7 +61,9 @@
                     </h4>
                     <ul id="popover">
                       {% for category in categories %}
-                      <li>{{ category.category_name }}</li>
+                    
+	                    <li> <INPUT style="caret-color: blue;" type="checkbox" data-id="{{ category.id }}" data-name="{{ category.category_name}}">{{ category.category_name }}</li>
+
                       {% endfor %}
                     </ul>
                 </div>
@@ -73,7 +77,11 @@
 
             {% for user in users %}
             <div class="card"  style="width: 18rem;padding: 2%;">
-                <img src="{{ user.dp }}" class="card-img-top" id="dp" alt="...">
+                {% if user.dp %}
+                <img src="{{ user.dp }}" style="object-fit:contain;" class="card-img-top" id="dp" alt="...">
+                {% else %}
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+                {% endif %}
                 <div class="card-body">
                   <h5 class="card-title">{{ user.full_name}}</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -85,7 +93,7 @@
                 </ul>
                 <div class="card-body">
                   <a href="/profile_view/{{ user.id }}" class="card-link">View</a>
-                  <a href="#" class="card-link">Request</a>
+                  <a href="JavaScript:newPopup('/request_service/{{ user.id }}')" class="card-link">Request</a>
                 </div>
             </div>
             {% endfor %}
