@@ -10,7 +10,7 @@
               <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">{{ user.user_name }}</a></li>
+                  <li class="breadcrumb-item"><a href="/edit_profile/{{ user.id }}">Edit {{ user.user_name }}</a></li>
                 </ol>
               </nav>
               <!-- /Breadcrumb -->
@@ -150,10 +150,10 @@
                          <!-- <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>-->
                          <div class="row">
                           <div class="col-sm-2">
-                            <a class="btn btn-outline-primary " target="__blank" href="">Edit Profile</a>
+                            <a class="btn btn-outline-primary " target="" href="/edit_profile/{{ user.id }}">Edit Profile</a>
                           </div>
                           <div class="col-sm-2">
-                              <a class="btn btn-outline-primary " target="__blank" href="">Save</a>
+                              <a class="btn btn-outline-primary " target="__blank" href="">Exit</a>
                           </div>
                         </div>
 

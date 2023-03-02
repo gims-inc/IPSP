@@ -61,7 +61,7 @@ def register():
           elif user != None:
                flash("The email alreay exits!",category="error")
           elif isValid(email) == False:
-               flash("Kindly use a valid email!", category="error")
+               flash("Kindly provied a valid email!", category="error")
           else:
                new_user = User(email=email,password=password,user_name=username,full_name=name)
 
