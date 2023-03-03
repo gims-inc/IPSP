@@ -1,2 +1,7 @@
 *.pyc
 notes.txt
+sampleUsers.csv
+*.csv
+manualInserts.sql
+populate_db.py
+v4_uuids.txt

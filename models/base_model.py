@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-"""
-Contains class BaseModel
-"""
 
 from datetime import datetime
 import models
@@ -13,13 +9,13 @@ import uuid
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
-models.storage_t == "db":
+
 Base = declarative_base()
 
 
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
-   # if models.storage_t == "db":
+   
     id = Column(String(60), primary_key=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow)

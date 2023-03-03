@@ -11,6 +11,8 @@ A project to enable automation and fast access to in-person service providers at
 - Troubleshooting
 - FAQ
 - Maintainers
- ![Ogola Sospeter] (https://github.com/OGOLA-SOSPETER)
- ![Gabriel Musanga](https://github.com/gims-inc)
+[Ogola Sospeter](https://github.com/OGOLA-SOSPETER)
+
+[Gabriel Musanga](https://github.com/gims-inc)
+
 
