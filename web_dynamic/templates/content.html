@@ -1,0 +1,155 @@
+<div class="container-fluid" id="content">
+
+    <div class="container" id="text-image">
+        <div class="" id="image-container">
+          <div class="image" >
+            <img src="../static/images/on_phone2.jpeg" alt="" class="img-fluid"  id="image1">
+          </div>
+
+          <div id="welcome-text" style="padding: 30px;">
+            <h2 id="text1">
+                Lets get you connected to an in-person service provider at the comfort of your choice!  
+            </h2>
+            <h3 id="text2">
+                Would you like to provide a service instead <a href="/auth/register">Sign up here!</a>
+            </h3>
+        </div>
+        </div>
+      </div>
+
+
+
+    
+
+        <div class="row" id="content-text" >
+
+        <div class="row" id="filterz">
+
+            <section class="filters">
+                <button>
+                    Search
+                </button>
+                <div class="locations">
+                    <h3>
+                        Regions
+                    </h3>
+                    <h4>
+                        Western, Eastern...
+                    </h4>
+                    <ul id="popover">
+                      {% for region in regions %}
+                      <li>
+                        <h2>{{ region[0].name }}:</h2>
+                        <ul>
+                          {% for town in region[1] %}
+                          <!--<li>{{ town.name }}</li>-->
+	                        <li> <INPUT style="caret-color: blue;" type="checkbox" data-id="{{ town.id }}" data-name="{{ town.name}}">{{ town.name }}</li>
+
+                          {% endfor %}
+                        </ul>
+                        </li>
+                      {% endfor %} 
+                    </ul>
+    
+                </div>
+                <div class="types">
+                    <h3>
+                        Service Types
+                    </h3>
+                    <h4>
+                        Proffessional, ...
+                    </h4>
+                    <ul id="popover">
+                      {% for category in categories %}
+                    
+	                    <li> <INPUT style="caret-color: blue;" type="checkbox" data-id="{{ category.id }}" data-name="{{ category.category_name}}">{{ category.category_name }}</li>
+
+                      {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="container"  id="cards-container">
+
+        <div class="row" id="cards">
+
+            {% for user in users %}
+            <div class="card"  style="width: 18rem;padding: 2%;">
+                {% if user.dp %}
+                <img src="{{ user.dp }}" style="object-fit:contain;" class="card-img-top" id="dp" alt="...">
+                {% else %}
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ user.full_name}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ user.skill }}</li>
+                  <li class="list-group-item">{{ user.town }}</li>
+                  <li class="list-group-item">{{ user.phone }}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="/profile_view/{{ user.id }}" class="card-link">View</a>
+                  <a href="JavaScript:newPopup('/request_service/{{ user.id }}')" class="card-link">Request</a>
+                </div>
+            </div>
+            {% endfor %}
+            
+              <div class="card" style="width: 18rem;">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card two</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                  <a href="/profile_view" class="card-link">View</a>
+                  <a href="#" class="card-link">Request</a>
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card three</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                  <a href="/profile_view" class="card-link">View</a>
+                  <a href="#" class="card-link">Request</a>
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card four</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                  <a href="/profile_view" class="card-link">View</a>
+                  <a href="#" class="card-link">Request</a>
+                </div>
+              </div>
+            
+        </div>
+    </div>
+</div>
+</div>
