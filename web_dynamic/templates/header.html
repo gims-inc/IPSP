@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="sticky_navbar">
+  <a class="navbar-brand" href="/home">
+    <span class="InPerson">In-Person</span> 
+    <span class="inperson"><sub>Service Provider</sub></span>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/our_story">Our Story<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/meet_the_team">The Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact us</a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" aria-hidden="true">
+            {% if session['islogin'] == "logged_in" %}
+              {{ session['username'] }}
+            {% else %}
+              <span style="font-size: smaller;">sign in</span>
+            {% endif %}
+          </i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+          <!-- <a class="dropdown-item" href="/profile_user/{{ session['userId'] }}">Profile</a> -->
+
+          <a class="dropdown-item" href="/auth/register">Register</a>
+          <a class="dropdown-item" href="#">Feedback</a>
+          
+          
+          {% if session['islogin'] == "logged_in" %}
+          <a class="dropdown-item" href="/profile_user/{{ session['userId'] }}">Profile</a>
+          <a class="dropdown-item" href="/auth/logout">sign out</a>
+          {% else %}
+          <a class="dropdown-item" href="/auth/login">sign in</a>
+          {% endif %}
+
+        </div>
+      </li>
+      {% if session['islogin'] == "logged_in" %}
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="notification">
+          <span><i class="fa-regular fa-bell"></i></span>
+          <span class="badge">0</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
