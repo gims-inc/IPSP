@@ -4,22 +4,31 @@ function newPopup(url) {
 }
 
 
-const input = document.getElementById('country');
-//const divs = document.querySelectorAll('.p-country');
-const out = document.getElementsByClassName('.p-class');
+// const input = document.getElementById('country');
+// //const divs = document.querySelectorAll('.p-country');
+// const out = document.getElementsByClassName('.p-class');
 
 
-// input.onkeyup = function() {
-//   divs.forEach(function(div) {
-//     div.innerHTML = input.value;
-//   });
-// }
+// // input.onkeyup = function() {
+// //   divs.forEach(function(div) {
+// //     div.innerHTML = input.value;
+// //   });
+// // }
 
-document.getElementById('edit-profile').addEventListener('load', 
+// document.getElementById('edit-profile').addEventListener('load', 
   
 
-input.onkeyup = function() {
-	out.innerHTML = input.value;
-  }
+// input.onkeyup = function() {
+// 	out.innerHTML = input.value;
+//   }
     
-, false);
+// , false);
+
+function updateUser(jsonobj){
+	fetch("/update_user", {
+		method: "POST",
+		body: JSON.stringify({}),
+	}).then((_res) => {
+	window.location.href = "/user_profile/"+{userId} ;
+	});
+}

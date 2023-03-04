@@ -303,3 +303,22 @@ body{
 .shadow-none {
   box-shadow: none!important;
 }
+
+/* ======================================== */
+#why ul {
+  --icon-space: 1.3em;
+  list-style: none;
+  padding: 0;
+}
+
+#why li {
+  padding-left: var(--icon-space);
+}
+
+#why li:before {
+  content: "\f00c"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: calc( var(--icon-space) * -1 );
+  width: var(--icon-space);
+}
