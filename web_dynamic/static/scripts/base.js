@@ -1,6 +1,6 @@
 function newPopup(url) {
 	popupWindow = window.open(
-		url,'popUpWindow','height=300,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+		String(url),'popUpWindow','height=400,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
 }
 
 
@@ -31,4 +31,17 @@ function updateUser(jsonobj){
 	}).then((_res) => {
 	window.location.href = "/user_profile/"+{userId} ;
 	});
+}
+
+function notImplementedYet(){
+	alert("This feature is currently being implemented!")
+}
+
+
+function exitPopup(){
+	window.open('','_self').close();
+}
+
+function confirmRequest(jsonObj){
+
 }
