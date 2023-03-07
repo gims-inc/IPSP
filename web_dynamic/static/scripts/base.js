@@ -101,7 +101,7 @@ const enterDiv = document.getElementById("filter");
 
 function getValue() {
     // Get the value of the select element
-    const selectValue = document.getElementById("carts").value;
+    const selectValue = document.getElementById("search-service").value;
     
     // Get the value of the text input element
     const inputValue = document.getElementById("search").value;
@@ -111,58 +111,82 @@ function getValue() {
     console.log("Entered Town:", inputValue);
 
 	return {
-        category: selectValue,
+        service: selectValue,
         town: inputValue 
     };
 	
   }
 
-function getUsers(tOwn,caTegory){
+function getUsers(tOwn,seRvice){
 
-	url = `/search?town=${tOwn}&category=${caTegory}`;
+	tOwn? tOwn: "None";
+	seRvice?seRvice: "None";
 
-	const data = fetch(url)
-	.then(response => response.json())
-	.then(data => console.log(data))
-	.catch(error => console.error(error));
+	url = `/search?town=${tOwn}&service=${seRvice}`;
 
-	return JSON.stringify(data);
+	const userData = fetch(url)
+	.then((response) => { 
+			return response.json().then((data) => {
+				//console.log(data);
+			return data;
+		}).catch((err) => {
+			console.log(err);
+		})
+	});
+	// .then(response => response.json())
+	// .then(data => console.log(data))
+	//.catch(error => console.error(error));
+	return userData;
   }
 
-  function setUsers(){
+   function setUsers(){
 	// const categoryValue = document.getElementById("carts").value;
     // const townValue = document.getElementById("search").value;
 	const htmlVal = getValue();
 
-	const users = getUsers(htmlVal.town,htmlVal.category);
-
-	return users;
+	return getUsers(htmlVal.town,htmlVal.service);
 
   }
 
-  async function showUsers(){
+   async function showUsers(){
 
-	jsonUsers =  await setUsers();
+	let jsonUsers =  await setUsers();
 
-	//   jsonUsers.forEach((user) => {
-	// 	console.log(user.full_name);
-	//   });
+	
+	console.log(jsonUsers);//debug
+
+	// for(val of jsonUsers){
+	// 	console.log(val)
+	// }
 	  
 
 
-	for (let i = 0; i < jsonUsers.length; i++) {
-		const user = jsonUsers[i];
-		console.log(jsonUsers.full_name);
+	//for (let i = 0; i < jsonUsers.length; i++) {
+		//const user = jsonUsers[i];
+		// for(key in jsonUsers[i]) {
+		// 	console.log(jsonUsers[i][key]); 
+		//  }
+		//console.log(jsonUsers[i][]);
+
+
+		// for(const val of jsonUsers[i]){
+		// 		console.log(jsonUsers[i][val]);
+		// 	}
+		let htmlCards = [];
+
+		jsonUsers.forEach((user) => {
+				console.log(user.full_name);
+	 		
 	  
 
-		const dp = jsonUsers.dp;
-		const fullname = jsonUsers.full_name;
-		const skill = jsonUsers.skill;
-		const town = jsonUsers.town;
-		const phone = jsonUsers.phone;
-		const id = jsonUsers.id;
+		const dp = user.dp;
+		const fullname = user.full_name;
+		const skill = user.skill;
+		const town = user.town;
+		const phone = user.phone;
+		const id = user.id;
 
-		const html =`<div class="card" style="width: 18rem;padding: 2%;">
+		htmlCards += `<div class="card" style="width: 18rem;padding: 2%;">
 					<img src="${dp}" class="card-img-top" alt="...">
 					<div class="card-body">
 					<h5 class="card-title">${fullname}</h5>
@@ -179,6 +203,21 @@ function getUsers(tOwn,caTegory){
 					</div>
 				</div>`
 
-	}
+		});
 
+		//console.log(htmlCards);
+
+		let searchResultDiv = document.getElementById('results');
+		searchResultDiv.innerHTML = htmlCards
+		searchResultDiv.style.display = 'flex';
+
+
+
+		// $(document).ready(function () {	
+
+		// 	$( "#results" ).html( htmlCards );
+
+		// });
+			  
+		
   }

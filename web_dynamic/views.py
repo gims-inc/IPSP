@@ -253,17 +253,26 @@ def filter_users():
     users = storage.all(User)
 
     town = request.args.get('town')
-    cat = request.args.get('category')
+    ser = request.args.get('service')
 
     filtered_users = []
 
     for user in users.values():
-        if town.lower() == user.town.lower():
-            filtered_users.append(user.to_dict())
-
-
-    # searchResponse = new JSONObject(response)
-
+        # if town == None and ser.lower() == user.skill.lower():
+        #     filtered_users.append(user.to_dict())
+        # elif ser == None and town == None and ser.lower():
+        #     filtered_users.append(user.to_dict())
+        # elif town.lower() == user.town.lower() and ser.lower() == user.skill.lower():
+        #     filtered_users.append(user.to_dict())
+        if town is None:
+            if ser.lower() == user.skill.lower():
+                filtered_users.append(user.to_dict())
+        elif ser is None:
+            if town.lower() == user.town.lower():
+                filtered_users.append(user.to_dict())
+        else:
+            if town.lower() == user.town.lower() and ser.lower() == user.skill.lower():
+                filtered_users.append(user.to_dict())
 
     return jsonify(filtered_users)
 
