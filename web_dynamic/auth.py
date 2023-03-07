@@ -4,7 +4,8 @@ import  uuid
 from models import storage
 from models.user import User
 from . import views
-from utils.email_verify import isValid
+from utils.email_verify import isValidemail
+from utils.pwd_cmp import isPassword
 
 auth = Blueprint('auth',__name__)
 
@@ -17,7 +18,7 @@ def login():
 
           if email == "":
                flash("Kindly provide a valid email and password!",category="error")
-          elif isValid(email) == False:
+          elif isValidemail(email) == False:
                flash("Check your email!",category="error")
           else:
                user = storage.get_user(email)
@@ -25,8 +26,11 @@ def login():
                if  not user:
                     flash("Kindly click on the register tab and sign up or provide valid emal and password!",category="error")
                     return redirect('/auth/register')
-          
+               elif not isPassword(password,user.id):
+                    flash("Invalid password!",category="error")
                else:
+
+
                     userid = user.id
                     session['islogin'] = "logged_in"
                     session['userId'] = userid

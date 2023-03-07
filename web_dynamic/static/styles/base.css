@@ -36,10 +36,10 @@
 /*===============================*/
 
 #content{
-  width: 90%;
+  width: 100%;
   display: flexbox;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 80px;
 }
 
 #content-text{
@@ -88,6 +88,7 @@
 
 #text-image{
 padding-bottom: 5%;
+border-top: 5px solid silver;
 }
 
 #image-container{
@@ -118,8 +119,8 @@ padding-bottom: 5%;
 #cards{
   display: flex;
   align-items: center;
-
-  padding-top: 50px;
+  justify-content: space-around;
+  padding-top: 100px;
   
 }
 
@@ -133,13 +134,16 @@ padding-bottom: 5%;
 #cards-container{
   padding-bottom: 50px;
   height: 1000px;
+  width: max-content;
   overflow-y:auto;
+  
 }
+
 #dp{
   border-radius: 10%;
 }
 
-/*===============filter========*/
+/* ===============filter======== */
 #filtersz{
   padding-top: 80px;
   padding-left: 40px;
@@ -250,13 +254,14 @@ div:hover > #popover {
 
 /*===============profile=====================*/
 
-body{
+/* body{
   margin-top:20px;
   color: #1a202c;
   text-align: left;
   background-color: #e2e8f0;    
-}
-.main-body {
+} */
+
+/* .main-body {
   padding: 15px;
 }
 .card {
@@ -302,7 +307,7 @@ body{
 }
 .shadow-none {
   box-shadow: none!important;
-}
+} */
 
 /* ======================================== */
 #why ul {

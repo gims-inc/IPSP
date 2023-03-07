@@ -1,6 +1,6 @@
-<div class="container-fluid" id="content">
+<div class="container" id="content">
 
-    <div class="container" id="text-image">
+    <div class="row" id="text-image">
         <div class="" id="image-container">
           <div class="image" >
             <img src="../static/images/on_phone2.jpeg" alt="" class="img-fluid"  id="image1">
@@ -21,14 +21,12 @@
 
     
 
-        <div class="row" id="content-text" >
+    <div class="row" id="content-text" >
 
-        <div class="row" id="filterz">
+        <!-- <div class="row" id="filterz">
 
-            <section class="filters">
-                <button>
-                    Search
-                </button>
+            <section class="filters">             
+
                 <div class="locations">
                     <h3>
                         Regions
@@ -42,7 +40,7 @@
                         <h2>{{ region[0].name }}:</h2>
                         <ul>
                           {% for town in region[1] %}
-                          <!--<li>{{ town.name }}</li>-->
+                         
 	                        <li> <INPUT style="caret-color: blue;" type="checkbox" data-id="{{ town.id }}" data-name="{{ town.name}}">{{ town.name }}</li>
 
                           {% endfor %}
@@ -67,11 +65,57 @@
                       {% endfor %}
                     </ul>
                 </div>
+
+                <button>
+                  Search
+              </button>
+
             </section>
 
-        </div>
+          </div> -->
 
-        <div class="container"  id="cards-container">
+          <div style="border-bottom: 5px solid silver;padding: 2%; border-radius: 10px; background-color: #FAFAFA;" >
+            
+            <div class="form-inline d-flex justify-content-center" id="filter">
+              
+
+              <label for="carts">Category:</label>
+
+                <select id="carts">
+                  <option value="None">None</option>
+                  
+                  {% for category in categories %}
+                    
+                  <option  data-id="{{ category.id }}" value="{{ category.category_name}}">{{ category.category_name }}</option>
+
+                  {% endfor %}
+
+                </select>
+                <div class="md-form mt-0">
+                  <input class="form-control" type="text" placeholder="Service" aria-label="Search-service" id="search-service">
+                </div>
+
+              
+              <div class="md-form mt-0">
+                <input class="form-control" type="text" placeholder="Town" aria-label="Search" id="search">
+              </div>
+              
+              <button class="btn btn-outline-primary" onclick="showUsers()">Search</button>
+
+            </div>
+
+          </div>
+
+
+      </div>
+
+    <div id="results" style="display: none;">
+
+        <a href="/home" style="float: right;"><i class="fa fa-window-close" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    <div class="container"  id="cards-container">
 
         <div class="row" id="cards">
 
@@ -151,5 +195,6 @@
             
         </div>
     </div>
-</div>
+
+
 </div>

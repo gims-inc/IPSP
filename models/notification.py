@@ -12,6 +12,7 @@ class Notification(BaseModel, Base):
     read_status = Column(String(60), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     text = Column(String(255), nullable=False)
+    other_data = Column(String(60), nullable=True)
     
 
     def __init__(self, *args, **kwargs):

@@ -31,6 +31,18 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="card mt-3" id="my-requests">
+                    <h6>My Requests</h6>
+                    <ul class="list-group list-group-flush" style="list-style-type: none;">
+                      {% for noti in notis %}
+                        <li>{{ noti|safe }}</li>
+                        <hr>
+                      {% endfor %}                     
+                    </ul>
+                  </div>
+
+
                   <div class="card mt-3">
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -51,6 +63,9 @@
                       </li>
                     </ul>
                   </div>
+                
+                  
+
                 </div>
                 <div class="col-md-8">
                   <div class="card mb-3">
