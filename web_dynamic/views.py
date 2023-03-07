@@ -203,15 +203,42 @@ def confirm_req():
     storage.new(write_confirm)
     storage.save()
 
-    notify_consumer = Notification(read_status = "unread",user_id=cid,text=f'You made a request: <a href="/profile_view/{pid}">View</a>')
+    notify_consumer = Notification(read_status = "unread",user_id=cid,text=f'You made a request: <a href="/profile_view/{pid}">View</a>',other_data=request_id)
     storage.new(notify_consumer)
     storage.save()
 
     url = f"'/accept_request/{request_id}'"
 
-    notify_provider = Notification(read_status = "unread",user_id=pid,text=f'You have a request:<a href="javascript:newPopup({ url });">Accept Request</a>')
+    notify_provider = Notification(read_status = "unread",user_id=pid,text=f'You have a request:<a href="javascript:newPopup({ url });">Accept Service Request</a>',other_data=request_id)
     storage.new(notify_provider)
     storage.save() 
+
+    return redirect('/success')
+
+@views.route('/edit_request',strict_slashes=False,methods=['GET','POST'])
+def edit_req():
+    pid = request.args.get('provider')
+    cid = request.args.get('consumer')
+    rid = request.args.get('request')
+    nid = request.args.get('notification')
+    stat = request.args.get('stat')
+
+    accept = storage.get(ServiceRequest,rid)
+    p_user = storage.get(User,pid)
+
+
+    notifications = storage.all(Notification)
+    for note in notifications.values():
+                if note.other_data == rid and note.read_status == "unread":
+                    accept = ServiceRequest()
+                    data = accept.to_dict()
+                    #setattr(data, "status","accepted")
+                    #data['status'] = "accepted"
+                    #storage.save()
+                        
+                    notify_consumer = Notification(read_status = "unread",user_id=cid,text=f'{p_user.user_name} accepted your request: <a href=""><i class="fal fa-window-close"></i></a>',other_data=cid)
+                    storage.new(notify_consumer)
+                    storage.save()                    
 
     return redirect('/success')
 
@@ -221,5 +248,22 @@ def success():
     return render_template('success.html',cache_id=uuid.uuid4())
 
 
+@views.route('/search',strict_slashes=False,methods=['GET','POST'])
+def filter_users():
+    users = storage.all(User)
 
+    town = request.args.get('town')
+    cat = request.args.get('category')
+
+    filtered_users = []
+
+    for user in users.values():
+        if town.lower() == user.town.lower():
+            filtered_users.append(user.to_dict())
+
+
+    # searchResponse = new JSONObject(response)
+
+
+    return jsonify(filtered_users)
 
